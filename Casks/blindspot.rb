@@ -19,10 +19,11 @@ cask "blindspot" do
 
   uninstall quit: "com.abhichandra.blindspot"
 
-  zap trash: [
-    "~/Library/LaunchAgents/com.abhichandra.blindspot.plist",
-    "~/Library/Preferences/com.abhichandra.blindspot.plist",
-  ]
+  zap launchctl: "com.abhichandra.blindspot",
+      trash:     [
+        "~/Library/LaunchAgents/com.abhichandra.blindspot.plist",
+        "~/Library/Preferences/com.abhichandra.blindspot.plist",
+      ]
 
   caveats <<~EOS
     Blindspot is not signed by Apple, so macOS blocks the first launch.
